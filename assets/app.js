@@ -3,6 +3,19 @@ import { WAITLIST_URL } from "./config.js";
 
 const $ = (id) => document.getElementById(id);
 let mode = "numeros";
+const EN = document.documentElement.lang.startsWith("en");
+const T = EN ? {
+  minTrades: "Paste at least 5 trades (ideally 20 or more).", needTarget: "Set at least the phase 1 target.", missing: "Missing data",
+  best: (p, x, l) => `Highest odds: ${p} at ${x} per trade (luck alone: ${l}). More risk isn't always better: past that point, the daily and total loss limits cut you off sooner.`,
+  noEdge: "With no edge, no risk level is a good bet: your line and the luck line move together.",
+  aria: "Probability of passing by risk per trade", yourRisk: "your risk", yourStrat: "your strategy", luck: "luck only",
+} : {
+  minTrades: "Pega al menos 5 operaciones (idealmente 20 o más).", needTarget: "Define al menos la meta de la fase 1.", missing: "Faltan datos",
+  best: (p, x, l) => `Mayor probabilidad: ${p} con ${x} por operación (solo suerte: ${l}). Más riesgo no siempre es mejor: pasado ese punto, la pérdida diaria y total te cortan antes.`,
+  noEdge: "Sin ventaja, ningún nivel de riesgo es una buena apuesta: tu línea y la de la suerte van juntas.",
+  aria: "Probabilidad de pasar según el riesgo por operación", yourRisk: "tu riesgo", yourStrat: "tu estrategia", luck: "solo suerte",
+};
+const dec = (s) => (EN ? s : s.replace(".", ","));
 
 function setPreset(name) {
   document.querySelectorAll("[data-preset]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.preset === name)));
@@ -27,9 +40,9 @@ function setMode(name) {
 
 const num = (id, def) => { const v = parseFloat(String($(id).value).replace(",", ".")); return Number.isFinite(v) ? v : def; };
 const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
-const pct = (v) => Math.round(v * 100) + " %";
-const fmtPct = (v) => String(+v.toFixed(2)).replace(".", ",") + " %";
-const fmtR = (v) => (v >= 0 ? "+" : "−") + Math.abs(v).toFixed(2).replace(".", ",") + "R";
+const pct = (v) => Math.round(v * 100) + (EN ? "%" : " %");
+const fmtPct = (v) => dec(String(+v.toFixed(2))) + (EN ? "%" : " %");
+const fmtR = (v) => (v >= 0 ? "+" : "−") + dec(Math.abs(v).toFixed(2)) + "R";
 
 function readRules() {
   return {
@@ -46,21 +59,21 @@ function readStrategy() {
 
 function run() {
   const d = readStrategy(), rules = readRules(), risk = clamp(num("riesgo", 0.5), 0.01, 10);
-  if (d.kind === "list" && d.vals.length < 5) return empty("Pega al menos 5 operaciones (idealmente 20 o más).");
-  if (!rules.targets.length) return empty("Define al menos la meta de la fase 1.");
+  if (d.kind === "list" && d.vals.length < 5) return empty(T.minTrades);
+  if (!rules.targets.length) return empty(T.needTarget);
   const me = simulate(d, rules, risk), luck = simulate(luckOf(d), rules, risk);
   render(me, luck, d.mean, risk, rules, curve(d, rules));
 }
 
 function empty(msg) {
   $("prob").innerHTML = "–<small>%</small>";
-  setPill("warn", "Faltan datos");
+  setPill("warn", T.missing);
   $("say").textContent = msg;
 }
 
 function render(me, luck, edge, risk, rules, points) {
   $("prob").innerHTML = `${Math.round(me.pasa * 100)}<small>%</small>`;
-  const v = verdict(me, luck, edge, risk, rules.horizon);
+  const v = verdict(me, luck, edge, risk, rules.horizon, EN ? "en" : "es");
   setPill(v.tone, v.label);
   $("say").textContent = v.text;
   for (const k of ["pasa", "diaria", "max", "tiempo"]) {
@@ -72,9 +85,7 @@ function render(me, luck, edge, risk, rules, points) {
   $("s-ventaja").textContent = fmtR(edge);
   drawChart(points, risk);
   const top = points.reduce((a, b) => (b.me > a.me + 0.005 ? b : a));
-  $("mejor").textContent = edge > 0
-    ? `Mayor probabilidad: ${pct(top.me)} con ${fmtPct(top.x)} por operación (solo suerte: ${pct(top.luck)}). Más riesgo no siempre es mejor: pasado ese punto, la pérdida diaria y total te cortan antes.`
-    : "Sin ventaja, ningún nivel de riesgo es una buena apuesta: tu línea y la de la suerte van juntas.";
+  $("mejor").textContent = edge > 0 ? T.best(pct(top.me), fmtPct(top.x), pct(top.luck)) : T.noEdge;
 }
 
 function setPill(tone, text) { const p = $("pill"); p.className = "pill " + tone; p.textContent = text; }
@@ -89,17 +100,17 @@ function drawChart(points, current) {
   const grid = [0, 0.25, 0.5, 0.75, 1].map((v) =>
     `<line x1="${L}" x2="${W - R}" y1="${y(v)}" y2="${y(v)}" stroke="${css("--line")}"/><text x="${L - 8}" y="${y(v) + 4}" text-anchor="end" fill="${css("--muted")}" ${mono}>${v * 100}%</text>`).join("");
   const ticks = [0.1, 0.25, 0.5, 1, 2, 3].map((v) =>
-    `<text x="${x(v)}" y="${H - 12}" text-anchor="middle" fill="${css("--muted")}" ${mono}>${String(v).replace(".", ",")}%</text>`).join("");
+    `<text x="${x(v)}" y="${H - 12}" text-anchor="middle" fill="${css("--muted")}" ${mono}>${dec(String(v))}%</text>`).join("");
   const cur = clamp(current, 0.1, 3), last = points[points.length - 1];
   const dots = points.map((p) => `<circle cx="${x(p.x)}" cy="${y(p.me)}" r="3" fill="${css("--accent")}"/>`).join("");
-  $("chart").innerHTML = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Probabilidad de pasar según el riesgo por operación">
+  $("chart").innerHTML = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${T.aria}">
     ${grid}${ticks}
     <line x1="${x(cur)}" x2="${x(cur)}" y1="${T}" y2="${H - B}" stroke="${css("--muted")}" stroke-dasharray="3 4"/>
-    <text x="${x(cur) + 5}" y="${T + 10}" fill="${css("--muted")}" ${mono}>tu riesgo</text>
+    <text x="${x(cur) + 5}" y="${T + 10}" fill="${css("--muted")}" ${mono}>${T.yourRisk}</text>
     <path d="${path("luck")}" fill="none" stroke="${css("--luck")}" stroke-width="2" stroke-dasharray="5 4"/>
     <path d="${path("me")}" fill="none" stroke="${css("--accent")}" stroke-width="2.5"/>${dots}
-    <text x="${W - R}" y="${y(last.me) - 8}" text-anchor="end" font-size="11" fill="${css("--accent")}">tu estrategia</text>
-    <text x="${W - R}" y="${y(last.luck) + 16}" text-anchor="end" font-size="11" fill="${css("--luck")}">solo suerte</text>
+    <text x="${W - R}" y="${y(last.me) - 8}" text-anchor="end" font-size="11" fill="${css("--accent")}">${T.yourStrat}</text>
+    <text x="${W - R}" y="${y(last.luck) + 16}" text-anchor="end" font-size="11" fill="${css("--luck")}">${T.luck}</text>
   </svg>`;
 }
 

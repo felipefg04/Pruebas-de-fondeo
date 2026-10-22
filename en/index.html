@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Challenge Odds · Would you pass your prop firm challenge?</title>
+<meta name="description" content="Simulate thousands of prop firm challenges with your strategy and risk per trade. See how likely you are to pass, why you would fail, and how much of it is luck.">
+<meta property="og:title" content="Challenge Odds · Would you pass your prop firm challenge?">
+<meta property="og:description" content="Free simulator for prop firm traders: pass probability, optimal risk per trade, and a comparison against pure luck.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0f6b72">
+<link rel="alternate" hreflang="es" href="https://felipefg04.github.io/Pruebas-de-fondeo/">
+<link rel="alternate" hreflang="en" href="https://felipefg04.github.io/Pruebas-de-fondeo/en/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230f6b72'/%3E%3Cpath d='M6 22l6-6 5 4 9-11' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+<div class="wrap">
+  <nav class="top" aria-label="Main">
+    <a class="brand" href="./">Challenge <i>Odds</i></a>
+    <span style="display:flex;gap:14px;align-items:center">
+      <a href="../" hreflang="es" lang="es" style="color:var(--muted);font-weight:600;text-decoration:none">ES</a>
+      <a class="btn" href="#lista" data-waitlist hidden>Get updates</a>
+    </span>
+  </nav>
+
+  <header>
+    <span class="eyebrow">Evaluation simulator · prop firms</span>
+    <h1>Would you pass your challenge?</h1>
+    <p class="lede">Enter how your strategy trades and your risk per trade. We simulate thousands of challenges under the evaluation rules and tell you how many you would pass, why you would fail, and how much of it is pure luck.</p>
+  </header>
+
+  <div class="grid">
+    <form class="panel" id="form" autocomplete="off">
+      <h2>Your strategy</h2>
+
+      <fieldset>
+        <legend>How to describe it</legend>
+        <div class="seg" role="group" aria-label="How to enter the strategy">
+          <button type="button" data-mode="numeros" aria-pressed="true">With my stats</button>
+          <button type="button" data-mode="lista" aria-pressed="false">With my trades</button>
+        </div>
+      </fieldset>
+
+      <fieldset id="modo-numeros">
+        <div class="row">
+          <label for="winrate">Win rate (%)<input id="winrate" type="number" min="1" max="99" step="1" value="45"></label>
+          <label for="winr">Average win (in R)<input id="winr" type="number" min="0.1" max="20" step="0.1" value="1.6"></label>
+        </div>
+        <p class="hint">R = what you risk per trade. A loss counts as −1R; if you win twice what you risk, that's +2R.</p>
+      </fieldset>
+
+      <fieldset id="modo-lista" hidden>
+        <label for="lista">Result of each trade in R (one per line, or separated by spaces)
+          <textarea id="lista" spellcheck="false">1.8
+-1
+-1
+2.1
+-1
+0.4
+1.5
+-1
+-1
+2.0
+-0.6
+1.7</textarea>
+        </label>
+        <p class="hint">At least 20 trades for the result to mean something. Paste them from your journal or spreadsheet.</p>
+      </fieldset>
+
+      <fieldset>
+        <legend>Pace and risk</legend>
+        <div class="row">
+          <label for="tpd">Trades per day (average)<input id="tpd" type="number" min="0.1" max="20" step="0.1" value="1.5"></label>
+          <label for="riesgo">Risk per trade (%)<input id="riesgo" type="number" min="0.05" max="5" step="0.05" value="0.5"></label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Evaluation rules</legend>
+        <div class="seg" role="group" aria-label="Evaluation type">
+          <button type="button" data-preset="dos" aria-pressed="true">2-step</button>
+          <button type="button" data-preset="una" aria-pressed="false">1-step</button>
+          <button type="button" data-preset="custom" aria-pressed="false">Custom</button>
+        </div>
+        <div class="rules">
+          <label for="meta1">Phase 1 target (%)<input id="meta1" type="number" step="0.5" min="1" max="50"></label>
+          <label for="meta2">Phase 2 target (%)<input id="meta2" type="number" step="0.5" min="0" max="50"></label>
+          <label for="diaria">Max daily loss (%)<input id="diaria" type="number" step="0.5" min="0.5" max="50"></label>
+          <label for="maxima">Max total loss (%)<input id="maxima" type="number" step="0.5" min="1" max="50"></label>
+          <label for="dmin">Minimum days per phase<input id="dmin" type="number" step="1" min="0" max="60"></label>
+          <label for="tipo">Total loss
+            <select id="tipo"><option value="fija">Static (from the start)</option><option value="sube">Trails your best close</option></select>
+          </label>
+          <label for="horizonte">Trading days you're willing to wait<input id="horizonte" type="number" step="5" min="10" max="500" value="90"></label>
+          <label for="mejordia">Best-day rule
+            <select id="mejordia"><option value="no">Doesn't apply</option><option value="si">Max 50% of profit</option></select>
+          </label>
+        </div>
+      </fieldset>
+    </form>
+
+    <section class="panel" aria-live="polite" aria-label="Result">
+      <div class="verdict">
+        <div class="big" id="prob">–<small>%</small></div>
+        <div>
+          <span class="pill" id="pill">Calculating</span>
+          <p class="say" id="say"></p>
+        </div>
+      </div>
+
+      <div style="display:grid;gap:8px">
+        <div class="bar" aria-hidden="true"><span id="b-pasa" style="background:var(--good)"></span><span id="b-diaria" style="background:var(--warn)"></span><span id="b-max" style="background:var(--bad)"></span><span id="b-tiempo" style="background:var(--luck)"></span></div>
+        <div class="legend">
+          <span><i style="background:var(--good)"></i>Passes <b id="l-pasa">–</b></span>
+          <span><i style="background:var(--warn)"></i>Hits daily loss <b id="l-diaria">–</b></span>
+          <span><i style="background:var(--bad)"></i>Hits total loss <b id="l-max">–</b></span>
+          <span><i style="background:var(--luck)"></i>Runs out of time <b id="l-tiempo">–</b></span>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><b id="s-dias">–</b><span>trading days (median) if you pass</span></div>
+        <div class="stat"><b id="s-suerte">–</b><span>would pass on luck alone, same risk</span></div>
+        <div class="stat"><b id="s-ventaja">–</b><span>your average edge per trade</span></div>
+      </div>
+
+      <div style="display:grid;gap:6px">
+        <h2>Pass probability by risk per trade</h2>
+        <div class="chart" id="chart"></div>
+        <p class="note" id="mejor"></p>
+      </div>
+    </section>
+  </div>
+
+  <section class="section" aria-labelledby="como">
+    <h2 id="como">How to read the result</h2>
+    <ol class="steps">
+      <li><b>Pass vs. luck</b><span>If your probability barely beats the grey line, you have no edge: paying for the challenge is a bet.</span></li>
+      <li><b>Why you fail</b><span>Daily or total loss means too much risk; "runs out of time" means too little risk or too few trades.</span></li>
+      <li><b>Optimal risk</b><span>The highest point on the chart. More risk isn't always better: the limits cut you off sooner.</span></li>
+    </ol>
+  </section>
+
+  <section class="cta" id="lista" data-waitlist hidden aria-labelledby="lista-t">
+    <div>
+      <h2 id="lista-t" style="margin:0;font:700 20px/1.2 var(--f-display)">We're building the full version</h2>
+      <p>Direct import from MetaTrader, rules for multiple prop firms, a history of your simulations, and alerts when your strategy is ready for the challenge. Leave your email and we'll let you know.</p>
+    </div>
+    <a class="btn" id="waitlist-link" href="#" target="_blank" rel="noopener">Notify me</a>
+  </section>
+
+  <section class="section" aria-labelledby="faq">
+    <h2 id="faq">FAQ</h2>
+    <details><summary>Where do the rules come from?</summary><p>The "2-step" and "1-step" options summarize the most common evaluations as of June 2026: 10% and 5% targets, 5% or 3% daily loss and 10% total loss. Every firm has its own details: use "Custom" and confirm them on the firm's site before paying.</p></details>
+    <details><summary>What does "luck alone" mean?</summary><p>We simulate the same strategy with the same volatility but an average profit of zero. That's what trading with no edge looks like. If your result looks like the luck result, the challenge comes down to chance.</p></details>
+    <details><summary>Do you store my data?</summary><p>No. Everything runs in your browser; your numbers and trades are never sent to any server.</p></details>
+    <details><summary>Is this financial advice?</summary><p>No. It's a calculation tool. Past results don't guarantee future results, and leveraged trading carries a risk of loss.</p></details>
+  </section>
+
+  <footer>
+    <p class="note">How we calculate: 2,000 simulated evaluations per result, day by day and trade by trade, against the target, the daily loss (measured from each day's starting balance) and the total loss. Intraday open P&amp;L isn't modeled, so the real daily-loss risk is somewhat higher.</p>
+    <p class="note">Independent tool, not affiliated with any prop firm. Not financial advice. <a href="privacy.html">Privacy</a></p>
+  </footer>
+</div>
+<script type="module" src="../assets/app.js"></script>
+</body>
+</html>

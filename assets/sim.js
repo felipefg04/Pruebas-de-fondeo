@@ -113,15 +113,20 @@ export function curve(d, rules, sims = 700, seed = 11) {
 }
 
 // Lectura en palabras simples del resultado.
-export function verdict(me, luck, edge, risk, horizon) {
-  const pct = (v) => Math.round(v * 100) + " %";
-  const r = String(+risk.toFixed(2)).replace(".", ",") + " %";
-  if (edge <= 0) return { tone: "bad", label: "Sin ventaja",
-    text: `Tu estrategia pierde o empata en promedio. Si pasas, sería suerte: subir el riesgo solo hace que falles más rápido.` };
-  if (me.pasa >= 0.6 && me.pasa - luck.pasa >= 0.2) return { tone: "good", label: "Buena opción",
-    text: `Con ${r} por operación pasarías ${pct(me.pasa)} de las veces; solo por suerte serían ${pct(luck.pasa)}. Tu ventaja hace la diferencia.` };
-  if (me.tiempo > 0.4) return { tone: "warn", label: "Muy lento",
-    text: `La mayoría de las veces no llegas a la meta en ${horizon} días hábiles. Con ventaja positiva, un poco más de riesgo o más operaciones por día lo acortan: mira el gráfico.` };
-  return { tone: "warn", label: "Arriesgado",
-    text: `Pasarías ${pct(me.pasa)} de las veces y fallarías por pérdida ${pct(me.diaria + me.max)}. Mira el gráfico para ver si otro riesgo te conviene más.` };
+export function verdict(me, luck, edge, risk, horizon, lang = "es") {
+  const en = lang === "en";
+  const pct = (v) => Math.round(v * 100) + (en ? "%" : " %");
+  const r = en ? +risk.toFixed(2) + "%" : String(+risk.toFixed(2)).replace(".", ",") + " %";
+  if (edge <= 0) return { tone: "bad", label: en ? "No edge" : "Sin ventaja",
+    text: en ? "Your strategy loses or breaks even on average. If you pass, it would be luck: raising risk only makes you fail faster."
+      : `Tu estrategia pierde o empata en promedio. Si pasas, sería suerte: subir el riesgo solo hace que falles más rápido.` };
+  if (me.pasa >= 0.6 && me.pasa - luck.pasa >= 0.2) return { tone: "good", label: en ? "Good bet" : "Buena opción",
+    text: en ? `At ${r} per trade you would pass ${pct(me.pasa)} of the time; on luck alone it would be ${pct(luck.pasa)}. Your edge makes the difference.`
+      : `Con ${r} por operación pasarías ${pct(me.pasa)} de las veces; solo por suerte serían ${pct(luck.pasa)}. Tu ventaja hace la diferencia.` };
+  if (me.tiempo > 0.4) return { tone: "warn", label: en ? "Too slow" : "Muy lento",
+    text: en ? `Most of the time you don't reach the target within ${horizon} trading days. With a positive edge, a bit more risk or more trades per day shortens it: check the chart.`
+      : `La mayoría de las veces no llegas a la meta en ${horizon} días hábiles. Con ventaja positiva, un poco más de riesgo o más operaciones por día lo acortan: mira el gráfico.` };
+  return { tone: "warn", label: en ? "Risky" : "Arriesgado",
+    text: en ? `You would pass ${pct(me.pasa)} of the time and fail on a loss limit ${pct(me.diaria + me.max)}. Check the chart to see if a different risk suits you better.`
+      : `Pasarías ${pct(me.pasa)} de las veces y fallarías por pérdida ${pct(me.diaria + me.max)}. Mira el gráfico para ver si otro riesgo te conviene más.` };
 }

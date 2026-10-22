@@ -69,3 +69,9 @@ test("curva cubre todos los riesgos y está entre 0 y 1", () => {
   assert.equal(c.length, 10);
   for (const p of c) assert.ok(p.me >= 0 && p.me <= 1 && p.luck >= 0 && p.luck <= 1);
 });
+
+test("veredicto en inglés", () => {
+  const v = verdict({ pasa: 0.7, diaria: 0, max: 0.1, tiempo: 0.2 }, { pasa: 0.2 }, 0.3, 0.5, 90, "en");
+  assert.equal(v.label, "Good bet");
+  assert.match(v.text, /0\.5% per trade/);
+});

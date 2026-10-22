@@ -26,7 +26,7 @@ jobs:
       - name: Armar el sitio (solo archivos públicos)
         run: |
           mkdir -p _site
-          cp -r index.html privacidad.html assets _site/
+          cp -r index.html privacidad.html assets en _site/
           touch _site/.nojekyll
       # Requiere: Settings → Pages → Source: GitHub Actions (una vez, lo hace el dueño del repositorio).
       - uses: actions/configure-pages@v5
