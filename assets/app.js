@@ -4,7 +4,7 @@ import { WAITLIST_URL } from "./config.js";
 const $ = (id) => document.getElementById(id);
 let mode = "numeros";
 const EN = document.documentElement.lang.startsWith("en");
-const T = EN ? {
+const TXT = EN ? {
   minTrades: "Paste at least 5 trades (ideally 20 or more).", needTarget: "Set at least the phase 1 target.", missing: "Missing data",
   best: (p, x, l) => `Highest odds: ${p} at ${x} per trade (luck alone: ${l}). More risk isn't always better: past that point, the daily and total loss limits cut you off sooner.`,
   noEdge: "With no edge, no risk level is a good bet: your line and the luck line move together.",
@@ -59,15 +59,15 @@ function readStrategy() {
 
 function run() {
   const d = readStrategy(), rules = readRules(), risk = clamp(num("riesgo", 0.5), 0.01, 10);
-  if (d.kind === "list" && d.vals.length < 5) return empty(T.minTrades);
-  if (!rules.targets.length) return empty(T.needTarget);
+  if (d.kind === "list" && d.vals.length < 5) return empty(TXT.minTrades);
+  if (!rules.targets.length) return empty(TXT.needTarget);
   const me = simulate(d, rules, risk), luck = simulate(luckOf(d), rules, risk);
   render(me, luck, d.mean, risk, rules, curve(d, rules));
 }
 
 function empty(msg) {
   $("prob").innerHTML = "–<small>%</small>";
-  setPill("warn", T.missing);
+  setPill("warn", TXT.missing);
   $("say").textContent = msg;
 }
 
@@ -85,7 +85,7 @@ function render(me, luck, edge, risk, rules, points) {
   $("s-ventaja").textContent = fmtR(edge);
   drawChart(points, risk);
   const top = points.reduce((a, b) => (b.me > a.me + 0.005 ? b : a));
-  $("mejor").textContent = edge > 0 ? T.best(pct(top.me), fmtPct(top.x), pct(top.luck)) : T.noEdge;
+  $("mejor").textContent = edge > 0 ? TXT.best(pct(top.me), fmtPct(top.x), pct(top.luck)) : TXT.noEdge;
 }
 
 function setPill(tone, text) { const p = $("pill"); p.className = "pill " + tone; p.textContent = text; }
@@ -103,14 +103,14 @@ function drawChart(points, current) {
     `<text x="${x(v)}" y="${H - 12}" text-anchor="middle" fill="${css("--muted")}" ${mono}>${dec(String(v))}%</text>`).join("");
   const cur = clamp(current, 0.1, 3), last = points[points.length - 1];
   const dots = points.map((p) => `<circle cx="${x(p.x)}" cy="${y(p.me)}" r="3" fill="${css("--accent")}"/>`).join("");
-  $("chart").innerHTML = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${T.aria}">
+  $("chart").innerHTML = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${TXT.aria}">
     ${grid}${ticks}
     <line x1="${x(cur)}" x2="${x(cur)}" y1="${T}" y2="${H - B}" stroke="${css("--muted")}" stroke-dasharray="3 4"/>
-    <text x="${x(cur) + 5}" y="${T + 10}" fill="${css("--muted")}" ${mono}>${T.yourRisk}</text>
+    <text x="${x(cur) + 5}" y="${T + 10}" fill="${css("--muted")}" ${mono}>${TXT.yourRisk}</text>
     <path d="${path("luck")}" fill="none" stroke="${css("--luck")}" stroke-width="2" stroke-dasharray="5 4"/>
     <path d="${path("me")}" fill="none" stroke="${css("--accent")}" stroke-width="2.5"/>${dots}
-    <text x="${W - R}" y="${y(last.me) - 8}" text-anchor="end" font-size="11" fill="${css("--accent")}">${T.yourStrat}</text>
-    <text x="${W - R}" y="${y(last.luck) + 16}" text-anchor="end" font-size="11" fill="${css("--luck")}">${T.luck}</text>
+    <text x="${W - R}" y="${y(last.me) - 8}" text-anchor="end" font-size="11" fill="${css("--accent")}">${TXT.yourStrat}</text>
+    <text x="${W - R}" y="${y(last.luck) + 16}" text-anchor="end" font-size="11" fill="${css("--luck")}">${TXT.luck}</text>
   </svg>`;
 }
 
