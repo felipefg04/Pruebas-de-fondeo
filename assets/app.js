@@ -1,5 +1,5 @@
 import { PRESETS, fromStats, fromList, parseList, luckOf, simulate, curve, verdict } from "./sim.js";
-import { WAITLIST_URL } from "./config.js";
+import { WAITLIST_URL, FIRMS } from "./config.js";
 
 const $ = (id) => document.getElementById(id);
 let mode = "numeros";
@@ -131,6 +131,22 @@ matchMedia("(prefers-color-scheme: dark)").addEventListener?.("change", schedule
 if (WAITLIST_URL) {
   $("waitlist-link").href = WAITLIST_URL;
   document.querySelectorAll("[data-waitlist]").forEach((el) => { el.hidden = false; });
+}
+
+if (FIRMS.length && $("firmas-list")) {
+  const lang = EN ? "en" : "es";
+  for (const f of FIRMS) {
+    const a = document.createElement("a");
+    a.className = "firm"; a.href = f.url; a.target = "_blank"; a.rel = "sponsored noopener";
+    a.dataset.goatcounterClick = "afiliado-" + f.name.toLowerCase().replace(/\W+/g, "");
+    a.dataset.goatcounterTitle = f.name;
+    const b = document.createElement("b"); b.textContent = f.name;
+    const s = document.createElement("span"); s.textContent = f[lang];
+    const go = document.createElement("i"); go.textContent = EN ? "Visit →" : "Ver →";
+    a.append(b, s, go);
+    $("firmas-list").append(a);
+  }
+  $("firmas").hidden = false;
 }
 
 setPreset("dos");
