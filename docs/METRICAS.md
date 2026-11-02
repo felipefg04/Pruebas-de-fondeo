@@ -8,8 +8,24 @@ Lo llena el agente de crecimiento en cada ejecución. Fuentes: GoatCounter (visi
 |---|---|---|---|---|---|---|---|---|
 | 2026-10-29 | 0 | 2 | ES 0 / EN 2 | t.co 1, desconocido 1 | 0 | sin dato (pide iniciar sesión) | 6 posts del 22-10: 6, 5, 3, 1, 1 vistas; 0 seguidores | Visitas desde Alemania y Nigeria. Sin posts nuevos desde el 22-10. |
 | 2026-10-30 | 0 | 2 | ES 0 / EN 2 | t.co 1, desconocido 1 | 0 | sin dato (pide iniciar sesión) | sin posts nuevos; últimos del 22-10: 9, 9, 5, 5, 4 vistas; 0 seguidores | Igual que ayer. No se publicaron las respuestas sugeridas del 29-10. |
+| 2026-11-02 | 0 (01-11) | 1 | ES 0 / EN 1 | t.co 1 | 0 | sin dato (pide iniciar sesión) | sin posts ni respuestas nuevas; últimos del 22-10: 9, 9, 6 vistas; 0 seguidores | 1 visita en 7 días (Nigeria, iPhone, desde X). Baja vs. 30-10 (2). No se publicaron las respuestas sugeridas del 29 y 30-10. |
 
 ## Respuestas sugeridas
+
+### 2026-11-02
+
+1. https://x.com/Aliyos__k/status/2116755703771578568 (EN, ~22 mil vistas, sin link)
+   > Congrats! Both phases in a week is strong. Tip for the funded stage: many traders cut risk per trade for the first weeks, since the goal is now not touching the drawdown, not hitting a target fast. What % are you planning to risk?
+2. https://x.com/thefundedroom/status/2116957756292997558 (EN, ~15,9 mil vistas, sin link)
+   > Good point. The math is mostly fail rate: if most traders don't pass, fees fund the payouts. A discount doesn't change your odds, only the price. Better question before buying: what's my real chance of passing these exact rules?
+3. https://x.com/deeriztm/status/2117161116107489448 (EN, ~3,2 mil vistas, con link)
+   > Underrated topic. Worth checking after a blown account: was it the setup or the sizing? Often it's just risk too high for the daily limit, so 4 normal losses in a row end it. Free sim to test sizing: https://felipefg04.github.io/Pruebas-de-fondeo/en/
+4. https://x.com/Didibradon/status/2117134238877208726 (EN, ~870 vistas, con link)
+   > Solid list. I'd add #6: what are my odds of passing with MY win rate and R under these rules? Same trader can have 2x the odds at one firm vs another just from drawdown type. Free sim to check before paying: https://felipefg04.github.io/Pruebas-de-fondeo/en/
+5. https://x.com/Shadedfx/status/2117134929410802039 (EN, ~1,6 mil vistas, sin link)
+   > Whichever has the drawdown rules that fit how I trade. A free account with intraday trailing DD can be worth less than a paid one with end-of-day DD if your trades swing a lot before working.
+
+Nota 02-11: en español no hubo posts de las últimas 24 h con buena visibilidad (los más vistos eran de autores ya usados o fuera de tema).
 
 ### 2026-10-30
 
