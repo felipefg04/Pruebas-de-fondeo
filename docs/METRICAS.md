@@ -9,8 +9,22 @@ Lo llena el agente de crecimiento en cada ejecución. Fuentes: GoatCounter (visi
 | 2026-10-29 | 0 | 2 | ES 0 / EN 2 | t.co 1, desconocido 1 | 0 | sin dato (pide iniciar sesión) | 6 posts del 22-10: 6, 5, 3, 1, 1 vistas; 0 seguidores | Visitas desde Alemania y Nigeria. Sin posts nuevos desde el 22-10. |
 | 2026-10-30 | 0 | 2 | ES 0 / EN 2 | t.co 1, desconocido 1 | 0 | sin dato (pide iniciar sesión) | sin posts nuevos; últimos del 22-10: 9, 9, 5, 5, 4 vistas; 0 seguidores | Igual que ayer. No se publicaron las respuestas sugeridas del 29-10. |
 | 2026-11-02 | 0 (01-11) | 1 | ES 0 / EN 1 | t.co 1 | 0 | sin dato (pide iniciar sesión) | sin posts ni respuestas nuevas; últimos del 22-10: 9, 9, 6 vistas; 0 seguidores | 1 visita en 7 días (Nigeria, iPhone, desde X). Baja vs. 30-10 (2). No se publicaron las respuestas sugeridas del 29 y 30-10. |
+| 2026-11-05 | 0 (04-11) | 0 | ES 0 / EN 0 | ninguno | 0 | sin dato (pide iniciar sesión) | sin posts ni respuestas nuevas; últimos del 22-10: 9, 9, 7, 6, 4 vistas; 0 seguidores | 0 visitas en 7 días (baja vs. 02-11: 1). El contador de GoatCounter sí está instalado en la página (revisado). No se publicaron las respuestas sugeridas del 29-10, 30-10 ni 02-11. |
 
 ## Respuestas sugeridas
+
+### 2026-11-05
+
+1. https://x.com/PropFirmTrader/status/2117980186721632476 (EN, ~2,3 mil vistas, con link)
+   > This is the number nobody posts. Simple check before buying the next one: with your real win rate and R, what are your odds of passing? If it's 25%, expect ~4 fees per pass. Free sim to run it: https://felipefg04.github.io/Pruebas-de-fondeo/en/
+2. https://x.com/Minded_Trader_/status/2118300368144888215 (EN, ~1,9 mil vistas, sin link)
+   > Taking a break is a good call. When you're back, one idea: cut risk per trade in half and set a hard stop of 2 losses per day. A losing streak is normal; what breaches accounts is the size during it. Then rebuild size only after a green week.
+3. https://x.com/0x_phoenix2/status/2117952515677258109 (EN, ~1,7 mil vistas, sin link)
+   > Makes sense. The useful part for new traders is checking which model fits their stats: a 1-step with a tight daily limit and a 2-step with more room can give very different odds for the same strategy. Worth comparing before picking.
+4. https://x.com/aialecs/status/2117991506783138071 (ES, ~1,5 mil vistas, con link)
+   > Muy de acuerdo. Algo que suma antes de pagar un challenge: meter tu % de acierto y tu R reales en las reglas de la cuenta y ver qué probabilidad tienes de pasar. Hice un simulador gratis para eso: https://felipefg04.github.io/Pruebas-de-fondeo/
+5. https://x.com/jesusmoratrader/status/2118083678668521819 (ES, ~440 vistas, con link)
+   > La que tenga reglas que calcen con cómo opero. Mismo trader, distinta prop: el tipo de drawdown (fin de día vs. trailing intradía) cambia mucho la probabilidad de pasar. Simulador gratis para comparar: https://felipefg04.github.io/Pruebas-de-fondeo/
 
 ### 2026-11-02
 
