@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Prop Firm Challenge Pass Rate: What Are Your Odds? · Challenge Odds</title>
+<meta name="description" content="How many traders pass a prop firm challenge, what actually drives your odds (risk per trade, daily loss, edge) and simulated examples. Free pass rate calculator.">
+<link rel="canonical" href="https://felipefg04.github.io/Pruebas-de-fondeo/en/challenge-pass-rate.html">
+<meta property="og:title" content="Prop Firm Challenge Pass Rate: What Are Your Odds?">
+<meta property="og:description" content="What decides whether you pass a prop firm challenge, with simulated examples and a free calculator.">
+<meta property="og:type" content="article">
+<meta name="theme-color" content="#0f6b72">
+<link rel="alternate" hreflang="es" href="https://felipefg04.github.io/Pruebas-de-fondeo/probabilidad-pasar-challenge.html">
+<link rel="alternate" hreflang="en" href="https://felipefg04.github.io/Pruebas-de-fondeo/en/challenge-pass-rate.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230f6b72'/%3E%3Cpath d='M6 22l6-6 5 4 9-11' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/styles.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","inLanguage":"en","mainEntity":[
+{"@type":"Question","name":"What percentage of traders pass a prop firm challenge?","acceptedAnswer":{"@type":"Answer","text":"The figures some firms have published are low: between 1 in 20 and 6 in 100 traders reach a funded account. Your own odds are not that average: they depend on your edge, your risk per trade and the exact rules."}},
+{"@type":"Question","name":"What risk per trade is best for a prop firm challenge?","acceptedAnswer":{"@type":"Answer","text":"It depends on your strategy. Too little risk and you run out of time; too much and the daily loss limit ends the attempt. In the simulated example (45% win rate, 1.6R average win, 2-step) the best point is around 1% per trade."}},
+{"@type":"Question","name":"Can you pass a prop firm challenge by luck?","acceptedAnswer":{"@type":"Answer","text":"Sometimes. With no edge and 1% risk, about 1 in 5 attempts passes by chance in the simulated example. That's why it's worth comparing your odds with pure luck before paying."}}
+]}
+</script>
+</head>
+<body>
+<div class="wrap" style="max-width:820px">
+  <nav class="top" aria-label="Main">
+    <a class="brand" href="./">Challenge <i>Odds</i></a>
+    <span class="lang" role="group" aria-label="Language / Idioma"><a href="../probabilidad-pasar-challenge.html" hreflang="es" lang="es">Español</a><a aria-current="page" lang="en">English</a></span>
+  </nav>
+
+  <header>
+    <span class="eyebrow">Guide · prop firm challenges</span>
+    <h1>Prop firm challenge pass rate: what are your odds?</h1>
+    <p class="lede">Most attempts fail. But that's everyone's average. Your odds depend on three things you can measure before you pay.</p>
+  </header>
+
+  <section class="section" aria-labelledby="g1">
+    <h2 id="g1">The average isn't your number</h2>
+    <p>Some firms have published their numbers, and they're low: one reported that only <a href="https://www.financemagnates.com/forex/only-1-in-20-traders-pass-prop-firm-challenges-reports-the-funded-trader/" rel="noopener">1 in 20</a> traders pass, another that <a href="https://www.financemagnates.com/forex/prop-firm-atfunded-reports-6-of-traders-reached-funded-status-in-june-trading-data/" rel="noopener">6%</a> reached funded status in one month. That average mixes traders with no plan and traders with a tested strategy. What matters is how often <b>your</b> strategy would pass under <b>your</b> rules.</p>
+    <ol class="steps">
+      <li><b>Your edge</b><span>Win rate and average win in R. With no edge, the challenge is a coin flip.</span></li>
+      <li><b>Your risk per trade</b><span>Too low: you don't hit the target in time. Too high: the daily loss limit ends it.</span></li>
+      <li><b>The rules</b><span>Target, daily loss, max loss (static or trailing) and minimum days.</span></li>
+    </ol>
+  </section>
+
+  <section class="section" aria-labelledby="g2">
+    <h2 id="g2">A simulated example</h2>
+    <p>Strategy: 45% win rate, 1.6R average win, 1.5 trades per day. 2-step evaluation (10% and 5% targets, 5% daily loss, 10% static max loss), up to 90 trading days per step. 4,000 simulations per row.</p>
+    <div class="panel" style="overflow-x:auto">
+      <table style="border-collapse:collapse;width:100%;font-size:14px;font-variant-numeric:tabular-nums">
+        <thead><tr style="text-align:left;color:var(--muted);font-size:13px"><th style="padding:6px 4px">Risk per trade</th><th style="padding:6px 4px">Pass</th><th style="padding:6px 4px">Luck alone</th><th style="padding:6px 4px">Main reason for failing</th></tr></thead>
+        <tbody>
+          <tr style="border-top:1px solid var(--line)"><td style="padding:8px 4px;vertical-align:top;white-space:nowrap">0.5%</td><td style="padding:8px 4px;vertical-align:top;white-space:nowrap"><b>59%</b></td><td style="padding:8px 4px;vertical-align:top;white-space:nowrap">5%</td><td style="padding:8px 4px;vertical-align:top">Runs out of time (39%)</td></tr>
+          <tr style="border-top:1px solid var(--line)"><td style="padding:8px 4px;vertical-align:top;white-space:nowrap">1%</td><td style="padding:8px 4px;vertical-align:top;white-space:nowrap"><b>76%</b></td><td style="padding:8px 4px;vertical-align:top;white-space:nowrap">24%</td><td style="padding:8px 4px;vertical-align:top">Max loss (15%)</td></tr>
+          <tr style="border-top:1px solid var(--line)"><td style="padding:8px 4px;vertical-align:top;white-space:nowrap">2%</td><td style="padding:8px 4px;vertical-align:top;white-space:nowrap"><b>40%</b></td><td style="padding:8px 4px;vertical-align:top;white-space:nowrap">19%</td><td style="padding:8px 4px;vertical-align:top">Daily loss (45%)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>The same strategy passes 76% or 40% of the time just by changing risk. And a strategy with no edge (50% win rate, 1R average win) passes about as often as luck: around 22% at 1% risk.</p>
+    <p class="note">These are simulations, not real results. They don't include intraday open P&amp;L, commissions or slippage, so reality is usually somewhat worse.</p>
+  </section>
+
+  <section class="cta" aria-labelledby="g3">
+    <div>
+      <h2 id="g3" style="margin:0;font:700 20px/1.2 var(--f-display)">Calculate your pass rate, free</h2>
+      <p>Enter your win rate, average win and risk, or paste your trades. Everything runs in your browser.</p>
+    </div>
+    <a class="btn" href="./">Open the calculator</a>
+  </section>
+
+  <section class="section" aria-labelledby="g4">
+    <h2 id="g4">FAQ</h2>
+    <details><summary>What risk per trade is best for a challenge?</summary><p>It depends on your strategy. In the example, the best point is around 1%. The calculator shows the full curve for your numbers.</p></details>
+    <details><summary>Can you pass by luck?</summary><p>Sometimes. With no edge and 1% risk, about 1 in 5 attempts passes by chance. If your odds look like luck's, paying for the challenge is a bet.</p></details>
+    <details><summary>Are my firm's rules different?</summary><p>Probably in some detail. Use "Custom" in the calculator and confirm the rules on the firm's site before paying.</p></details>
+  </section>
+
+  <footer>
+    <p class="note">Independent tool, not affiliated with any prop firm. Not financial advice; leveraged trading carries a risk of loss. <a href="./">Calculator</a> · <a href="privacy.html">Privacy</a></p>
+  </footer>
+</div>
+<script data-goatcounter="https://felipefg.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
