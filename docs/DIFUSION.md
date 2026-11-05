@@ -44,3 +44,21 @@ Lo llena el agente de difusión una vez por semana. Solo canales gratuitos. Feli
   lanzamientos de herramientas de prop firms (Evalia, PropLedger, PropSentinel): opción para más adelante,
   cuando haya algo nuevo que mostrar.
 - BabyPips prohíbe la solicitación en su foro: no usar.
+
+### Segunda corrida del 2026-11-05 (duplicada)
+- La tarea corrió dos veces hoy. La segunda no repitió las guías: solo agregó `canonical` a las dos portadas
+  (evita que Google cuente versiones duplicadas de la URL).
+- Textos de reserva para las próximas semanas:
+  - **Post de valor para r/PropFirms** (EN, leer antes las reglas de la barra lateral). Título: *I simulated
+    the same strategy at 0.25%–2% risk on a 2-step challenge. Pass odds peaked at 1%, not 2%*. Cuerpo: la tabla
+    de la guía EN, dos conclusiones (más riesgo baja la probabilidad pasado un punto; sin ventaja igual se pasa
+    ~24 % con 1 %, así que pasar una vez no prueba nada), la advertencia de que no modela el resultado abierto
+    del día, y al final: "I built the simulator as a free side project (no sign-up, runs in your browser; the
+    site has a couple of clearly labeled affiliate links). Happy to share it if useful."
+  - **Newsletter Delphic Alpha**, que publicó "Prop Firm Math" (mismo tema):
+    https://delphicalpha.substack.com/p/prop-firm-math-what-the-rules-actually — comentario o respuesta al
+    correo: "Hi! I enjoyed 'Prop Firm Math', it's the same question I've been working on. I built a free
+    simulator that runs thousands of challenges with a trader's own win rate, R and risk per trade, and
+    compares the result with a zero-edge version of the same strategy. No sign-up, runs in the browser:
+    https://felipefg04.github.io/Pruebas-de-fondeo/en/ . If it's useful for your readers, feel free to
+    mention it. Feedback on the math is welcome. — Felipe"
