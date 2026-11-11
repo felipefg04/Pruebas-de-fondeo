@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Drawdown fijo vs. trailing en prop firms: cuánto cambia tu probabilidad · Prueba de Fondeo</title>
+<meta name="description" content="Qué es el drawdown trailing y el fijo (estático) en un challenge de fondeo, cuál es más difícil y cuánto baja tu probabilidad de pasar, con ejemplos simulados. Simulador gratis.">
+<link rel="canonical" href="https://felipefg04.github.io/Pruebas-de-fondeo/drawdown-fijo-vs-trailing.html">
+<meta property="og:title" content="Drawdown fijo vs. trailing: cuánto cambia tu probabilidad de pasar">
+<meta property="og:description" content="La misma estrategia pasa 76 % con drawdown fijo y 67 % con trailing. Ejemplo simulado y simulador gratis.">
+<meta property="og:type" content="article">
+<meta name="theme-color" content="#0f6b72">
+<link rel="alternate" hreflang="es" href="https://felipefg04.github.io/Pruebas-de-fondeo/drawdown-fijo-vs-trailing.html">
+<link rel="alternate" hreflang="en" href="https://felipefg04.github.io/Pruebas-de-fondeo/en/static-vs-trailing-drawdown.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230f6b72'/%3E%3Cpath d='M6 22l6-6 5 4 9-11' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/styles.css">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "es", "mainEntity": [{"@type": "Question", "name": "¿Qué es el drawdown trailing en una prop firm?", "acceptedAnswer": {"@type": "Answer", "text": "Es un límite de pérdida total que sube cuando tu cuenta marca un nuevo máximo. Si el límite es 10 % y la cuenta llega a 105, ya no puedes bajar de 95 en vez de 90. Con drawdown fijo (estático) el piso queda siempre en el saldo inicial menos el límite."}}, {"@type": "Question", "name": "¿Es más difícil pasar un challenge con drawdown trailing?", "acceptedAnswer": {"@type": "Answer", "text": "Sí, con el mismo límite y la misma estrategia. En el ejemplo simulado (45 % de acierto, ganancia media 1,6R, 2 fases, 1 % de riesgo) la probabilidad baja de 76 % a 67 %, y los fallos por pérdida total casi se duplican."}}, {"@type": "Question", "name": "¿Qué es peor, trailing intradía o al cierre del día?", "acceptedAnswer": {"@type": "Answer", "text": "El intradía, porque el piso sube con cada ganancia flotante aunque la operación después vuelva atrás. El trailing al cierre del día solo sube con el saldo cerrado. Las cifras de esta guía son con trailing al cierre del día; con trailing intradía serían algo peores."}}]}
+</script>
+</head>
+<body>
+<div class="wrap" style="max-width:820px">
+  <nav class="top" aria-label="Principal">
+    <a class="brand" href="./">Prueba de <i>Fondeo</i></a>
+    <span class="lang" role="group" aria-label="Idioma / Language"><a aria-current="page" lang="es">Español</a><a href="en/static-vs-trailing-drawdown.html" hreflang="en" lang="en">English</a></span>
+  </nav>
+
+  <header>
+    <span class="eyebrow">Guía · reglas de los challenges</span>
+    <h1>Drawdown fijo vs. trailing: cuánto cambia tu probabilidad de pasar</h1>
+    <p class="lede">Dos challenges pueden tener la misma meta y el mismo límite de 10 % y aun así no ser igual de difíciles. La diferencia está en desde dónde se mide la pérdida.</p>
+  </header>
+
+  <section class="section" aria-labelledby="d1">
+    <h2 id="d1">Qué significa cada uno</h2>
+    <ol class="steps">
+      <li><b>Fijo (estático)</b><span>El piso no se mueve: con cuenta de 100 y límite de 10 %, pierdes el challenge si bajas de 90, aunque antes hayas llegado a 108.</span></li>
+      <li><b>Trailing al cierre del día</b><span>El piso sube cuando el saldo cerrado del día marca un máximo nuevo. Si cierras en 105, el piso pasa a 95.</span></li>
+      <li><b>Trailing intradía</b><span>El piso sube incluso con ganancias flotantes. Una operación que llega a +3 % y vuelve a 0 ya te subió el piso.</span></li>
+    </ol>
+    <p>Con trailing, cada ganancia "te quita" margen hacia abajo. Por eso una racha de pérdidas normal, que con drawdown fijo aguantas, con trailing te puede eliminar justo después de un buen tramo.</p>
+  </section>
+
+  <section class="section" aria-labelledby="d2">
+    <h2 id="d2">Un ejemplo simulado</h2>
+    <p>Misma estrategia que en la <a href="probabilidad-pasar-challenge.html">guía de probabilidad</a>: 45 % de operaciones ganadas, ganancia media 1,6R, 1,5 operaciones al día. Evaluación de 2 fases (metas 10 % y 5 %, pérdida diaria 5 %, pérdida total 10 %), hasta 90 días hábiles por fase. Solo cambia el tipo de pérdida total. 4.000 simulaciones por celda.</p>
+    <div class="panel" style="overflow-x:auto">
+      <table style="border-collapse:collapse;width:100%;font-size:14px;font-variant-numeric:tabular-nums">
+        <thead><tr style="text-align:left;color:var(--muted);font-size:13px"><th style="padding:6px 4px">Riesgo por operación</th><th style="padding:6px 4px">Pasa con fijo</th><th style="padding:6px 4px">Pasa con trailing</th><th style="padding:6px 4px">Fallos por pérdida total</th></tr></thead>
+        <tbody><tr style="border-top:1px solid var(--line)"><td style="padding:8px 4px;vertical-align:top;white-space:nowrap">0,5 %</td><td style="padding:8px 4px;vertical-align:top;white-space:nowrap"><b>59 %</b></td><td style="padding:8px 4px;vertical-align:top;white-space:nowrap"><b>59 %</b></td><td style="padding:8px 4px;vertical-align:top;white-space:nowrap">2&nbsp;% → 4&nbsp;%</td></tr><tr style="border-top:1px solid var(--line)"><td style="padding:8px 4px;vertical-align:top;white-space:nowrap">1 %</td><td style="padding:8px 4px;vertical-align:top;white-space:nowrap"><b>76 %</b></td><td style="padding:8px 4px;vertical-align:top;white-space:nowrap"><b>67 %</b></td><td style="padding:8px 4px;vertical-align:top;white-space:nowrap">15&nbsp;% → 29&nbsp;%</td></tr><tr style="border-top:1px solid var(--line)"><td style="padding:8px 4px;vertical-align:top;white-space:nowrap">2 %</td><td style="padding:8px 4px;vertical-align:top;white-space:nowrap"><b>40 %</b></td><td style="padding:8px 4px;vertical-align:top;white-space:nowrap"><b>35 %</b></td><td style="padding:8px 4px;vertical-align:top;white-space:nowrap">15&nbsp;% → 28&nbsp;%</td></tr></tbody>
+      </table>
+    </div>
+    <p>Con riesgo bajo casi no hay diferencia, porque la cuenta rara vez se acerca al límite. Con 1 % de riesgo, la misma estrategia pasa 9 puntos menos con trailing y las eliminaciones por pérdida total casi se duplican. Si tu firma usa trailing, conviene operar con algo menos de riesgo del que usarías con drawdown fijo.</p>
+    <p class="note">Son simulaciones, no resultados reales. El trailing simulado es al cierre del día; con trailing intradía la diferencia sería mayor. No incluyen comisiones ni deslizamiento.</p>
+  </section>
+
+  <section class="cta" aria-labelledby="d3">
+    <div>
+      <h2 id="d3" style="margin:0;font:700 20px/1.2 var(--f-display)">Prueba tus números con cada regla</h2>
+      <p>En "A mi medida" eliges pérdida total "Fija" o "Sube con tu mejor cierre", y ves tu probabilidad al lado de la de la suerte. Gratis, sin registro y todo en tu navegador.</p>
+    </div>
+    <a class="btn" href="./">Abrir el simulador</a>
+  </section>
+
+  <section class="section" aria-labelledby="d4">
+    <h2 id="d4">Preguntas frecuentes</h2>
+    <details><summary>¿Qué es el drawdown trailing?</summary><p>Un límite de pérdida total que sube cuando la cuenta marca un máximo nuevo. Con límite de 10 % y cuenta en 105, el piso pasa de 90 a 95.</p></details>
+    <details><summary>¿Es más difícil pasar con trailing?</summary><p>Sí, con el mismo límite. En el ejemplo, con 1 % de riesgo, la probabilidad baja de 76 % a 67 %.</p></details>
+    <details><summary>¿Qué es peor, intradía o al cierre?</summary><p>El intradía: sube el piso con ganancias que todavía no cerraste. Revisa en el sitio de tu firma cuál usa antes de pagar.</p></details>
+  </section>
+
+  <footer>
+    <p class="note">Herramienta independiente, sin afiliación con ninguna prop firm. No es asesoría financiera; operar con apalancamiento implica riesgo de pérdida. <a href="./">Simulador</a> · <a href="probabilidad-pasar-challenge.html">Guía: probabilidad de pasar</a> · <a href="privacidad.html">Privacidad</a></p>
+  </footer>
+</div>
+<script data-goatcounter="https://felipefg.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Static vs. Trailing Drawdown: How It Changes Your Pass Odds · Challenge Odds</title>
+<meta name="description" content="What a trailing vs. static drawdown means in a prop firm challenge, which is harder, and how much it lowers your pass rate, with simulated examples. Free calculator.">
+<link rel="canonical" href="https://felipefg04.github.io/Pruebas-de-fondeo/en/static-vs-trailing-drawdown.html">
+<meta property="og:title" content="Static vs. trailing drawdown: how much it changes your pass odds">
+<meta property="og:description" content="The same strategy passes 76% with a static drawdown and 67% with trailing. Simulated example and free calculator.">
+<meta property="og:type" content="article">
+<meta name="theme-color" content="#0f6b72">
+<link rel="alternate" hreflang="es" href="https://felipefg04.github.io/Pruebas-de-fondeo/drawdown-fijo-vs-trailing.html">
+<link rel="alternate" hreflang="en" href="https://felipefg04.github.io/Pruebas-de-fondeo/en/static-vs-trailing-drawdown.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230f6b72'/%3E%3Cpath d='M6 22l6-6 5 4 9-11' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/styles.css">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "en", "mainEntity": [{"@type": "Question", "name": "What is a trailing drawdown in a prop firm?", "acceptedAnswer": {"@type": "Answer", "text": "It's a max loss limit that moves up when your account makes a new high. With a 10% limit and the account at 105, you can no longer drop below 95 instead of 90. With a static drawdown the floor always stays at the starting balance minus the limit."}}, {"@type": "Question", "name": "Is it harder to pass a challenge with a trailing drawdown?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, with the same limit and strategy. In the simulated example (45% win rate, 1.6R average win, 2-step, 1% risk) the pass rate drops from 76% to 67%, and failures from the max loss limit nearly double."}}, {"@type": "Question", "name": "Which is worse, intraday or end-of-day trailing drawdown?", "acceptedAnswer": {"@type": "Answer", "text": "Intraday, because the floor rises with every unrealized gain even if the trade later comes back. End-of-day trailing only moves with the closed balance. The numbers in this guide use end-of-day trailing; intraday trailing would be somewhat worse."}}]}
+</script>
+</head>
+<body>
+<div class="wrap" style="max-width:820px">
+  <nav class="top" aria-label="Main">
+    <a class="brand" href="./">Challenge <i>Odds</i></a>
+    <span class="lang" role="group" aria-label="Language / Idioma"><a href="../drawdown-fijo-vs-trailing.html" hreflang="es" lang="es">Español</a><a aria-current="page" lang="en">English</a></span>
+  </nav>
+
+  <header>
+    <span class="eyebrow">Guide · challenge rules</span>
+    <h1>Static vs. trailing drawdown: how much it changes your pass odds</h1>
+    <p class="lede">Two challenges can have the same target and the same 10% limit and still not be equally hard. The difference is where the loss is measured from.</p>
+  </header>
+
+  <section class="section" aria-labelledby="d1">
+    <h2 id="d1">What each one means</h2>
+    <ol class="steps">
+      <li><b>Static</b><span>The floor never moves: with a 100 account and a 10% limit, you fail if you drop below 90, even after reaching 108.</span></li>
+      <li><b>End-of-day trailing</b><span>The floor moves up when the day's closing balance makes a new high. Close at 105 and the floor becomes 95.</span></li>
+      <li><b>Intraday trailing</b><span>The floor moves up even with unrealized gains. A trade that hits +3% and comes back to 0 has already raised your floor.</span></li>
+    </ol>
+    <p>With a trailing drawdown, every gain "takes away" room below you. That's why a normal losing streak you would survive with a static drawdown can end the account right after a good run.</p>
+  </section>
+
+  <section class="section" aria-labelledby="d2">
+    <h2 id="d2">A simulated example</h2>
+    <p>Same strategy as the <a href="challenge-pass-rate.html">pass rate guide</a>: 45% winning trades, 1.6R average win, 1.5 trades per day. 2-step evaluation (10% and 5% targets, 5% daily loss, 10% max loss), up to 90 trading days per phase. Only the max loss type changes. 4,000 simulations per cell.</p>
+    <div class="panel" style="overflow-x:auto">
+      <table style="border-collapse:collapse;width:100%;font-size:14px;font-variant-numeric:tabular-nums">
+        <thead><tr style="text-align:left;color:var(--muted);font-size:13px"><th style="padding:6px 4px">Risk per trade</th><th style="padding:6px 4px">Pass, static</th><th style="padding:6px 4px">Pass, trailing</th><th style="padding:6px 4px">Max-loss failures</th></tr></thead>
+        <tbody><tr style="border-top:1px solid var(--line)"><td style="padding:8px 4px;vertical-align:top;white-space:nowrap">0.5%</td><td style="padding:8px 4px;vertical-align:top;white-space:nowrap"><b>59%</b></td><td style="padding:8px 4px;vertical-align:top;white-space:nowrap"><b>59%</b></td><td style="padding:8px 4px;vertical-align:top;white-space:nowrap">2% → 4%</td></tr><tr style="border-top:1px solid var(--line)"><td style="padding:8px 4px;vertical-align:top;white-space:nowrap">1%</td><td style="padding:8px 4px;vertical-align:top;white-space:nowrap"><b>76%</b></td><td style="padding:8px 4px;vertical-align:top;white-space:nowrap"><b>67%</b></td><td style="padding:8px 4px;vertical-align:top;white-space:nowrap">15% → 29%</td></tr><tr style="border-top:1px solid var(--line)"><td style="padding:8px 4px;vertical-align:top;white-space:nowrap">2%</td><td style="padding:8px 4px;vertical-align:top;white-space:nowrap"><b>40%</b></td><td style="padding:8px 4px;vertical-align:top;white-space:nowrap"><b>35%</b></td><td style="padding:8px 4px;vertical-align:top;white-space:nowrap">15% → 28%</td></tr></tbody>
+      </table>
+    </div>
+    <p>At low risk there's almost no difference, because the account rarely gets near the limit. At 1% risk the same strategy passes 9 points less with trailing, and max-loss failures nearly double. If your firm uses a trailing drawdown, it usually pays to risk a bit less than you would with a static one.</p>
+    <p class="note">These are simulations, not real results. The simulated trailing is end-of-day; with intraday trailing the gap would be bigger. No commissions or slippage included.</p>
+  </section>
+
+  <section class="cta" aria-labelledby="d3">
+    <div>
+      <h2 id="d3" style="margin:0;font:700 20px/1.2 var(--f-display)">Test your numbers with each rule</h2>
+      <p>In "Custom" you pick "Static" or "Trails your best close" for the max loss and see your odds next to pure luck. Free, no sign-up, runs in your browser.</p>
+    </div>
+    <a class="btn" href="./">Open the simulator</a>
+  </section>
+
+  <section class="section" aria-labelledby="d4">
+    <h2 id="d4">FAQ</h2>
+    <details><summary>What is a trailing drawdown?</summary><p>A max loss limit that rises when the account makes a new high. With a 10% limit and the account at 105, the floor moves from 90 to 95.</p></details>
+    <details><summary>Is it harder to pass with trailing?</summary><p>Yes, with the same limit. In the example, at 1% risk, the pass rate drops from 76% to 67%.</p></details>
+    <details><summary>Intraday or end-of-day: which is worse?</summary><p>Intraday: it raises the floor with gains you haven't closed yet. Check which one your firm uses before paying.</p></details>
+  </section>
+
+  <footer>
+    <p class="note">Independent tool, not affiliated with any prop firm. Not financial advice; leveraged trading carries risk of loss. <a href="./">Simulator</a> · <a href="challenge-pass-rate.html">Guide: pass rate</a> · <a href="privacy.html">Privacy</a></p>
+  </footer>
+</div>
+<script data-goatcounter="https://felipefg.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
