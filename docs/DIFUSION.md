@@ -126,3 +126,66 @@ Lo llena el agente de difusión una vez por semana. Solo canales gratuitos. Feli
   para Chile y Colombia: buen canal hispano.
 - Directorios gratis vistos: Find My Moat (curado, financiero), PeerPush (categoría trading). Product Hunt sigue
   para más adelante.
+
+## Semana del 2026-11-18
+
+### Estado al empezar
+- `METRICAS.md` sigue sin filas nuevas desde el 05-11 (el agente de métricas no ha dejado datos). No hay issues
+  nuevos en el repo. La portada aún no tiene etiqueta de Google Search Console: ninguna acción de las dos semanas
+  anteriores aparece hecha. Se mantienen pocas acciones y muy cortas.
+
+### Cambio SEO hecho
+- Guía nueva en ES y EN: `riesgo-por-operacion-challenge.html` y `en/risk-per-trade-challenge.html` (búsquedas
+  "cuánto arriesgar por operación challenge", "how much to risk per trade prop firm challenge"; las guías que
+  existen dan reglas fijas, casi ninguna muestra probabilidades simuladas).
+- Ejemplo simulado con `assets/sim.js` (1,5 op/día, 90 días por fase, 4.000 simulaciones por celda). 2 fases
+  (10 %/5 %, diaria 5 %, total 10 % fija), mejor riesgo: 40 %·2R → 80 % con 0,75 %; 45 %·1,6R → 77 % con 0,75 %;
+  55 %·1,1R → 82 % con 1 %. Con 2 %: 36 / 40 / 52 %. 1 fase (diaria 3 %, trailing) con 45 %·1,6R: 67–68 % con
+  0,5–0,75 %, 43 % con 1 %, 21 % con 1,5 %. Solo suerte (45 %, 2 fases): 24–26 % con 1–1,5 %. Mediana de días
+  (45 %, 2 fases): 59 con 0,75 %, 16 con 2 %. Regla simple de la guía: pérdida diaria ÷ riesgo = pérdidas
+  seguidas que aguantas en un día; lo mejor fue 4–6.
+- FAQ con datos estructurados (FAQPage), canonical, hreflang, GoatCounter. Sin nombres de prop firms. Enlazada
+  desde el pie de las dos portadas y de las cuatro guías. `sitemap.xml` (10 URLs) y `publicar.yml` actualizados.
+  Tests 23/23. Revisada en Chromium a 375 px: sin desborde horizontal (la tabla cabe con encabezados cortos).
+
+### Acciones propuestas (de más a menos importante)
+1. **Google Search Console** (10 min) — pendiente desde el 05-11. https://search.google.com/search-console →
+   "Prefijo de URL" → `https://felipefg04.github.io/Pruebas-de-fondeo/` → "Etiqueta HTML" → pasar la etiqueta
+   al agente (o pegarla en un issue) → enviar `sitemap.xml`.
+2. **Hilo semanal "Software Sunday" de r/Daytrading** (5 min, EN, domingo 22-11) —
+   https://www.reddit.com/r/Daytrading/ → buscar el hilo fijado "Software Sunday" que abre AutoModerator. Es el
+   lugar permitido para compartir herramientas, así que el link no es spam.
+3. **Post en X** (2 min) — ES y EN con la guía nueva.
+4. **Foro de Rankia** (15 min, ES) — https://www.rankia.co/foros/bolsa/temas/4690406-simulador-prueba-fondeo
+   (texto de la semana del 11-11, sigue vigente). Leer antes las normas sobre enlaces.
+5. **Comentario en la newsletter "Ideas de inversión by FI"** (5 min, ES) — Substack en español sobre cuentas
+   fondeadas: https://ideasdeinversionbyfi.substack.com/p/5-errores-comunes-al-operar-con-cuentas-fondeadas-prop-firm-trading-como-evitarlos
+   Comentar con valor; si se puede, responder también al correo de la newsletter.
+
+### Textos listos
+- **r/Daytrading Software Sunday (EN):** "Challenge Odds: a free simulator for prop firm challenges. You enter
+  your win rate and average win in R (or paste your real trades), pick the rules (targets, daily loss, static or
+  trailing max loss) and it runs thousands of attempts at 10 risk levels, next to a zero-edge version of the same
+  strategy so you can see how much is luck. Free, no sign-up, runs in the browser:
+  https://felipefg04.github.io/Pruebas-de-fondeo/en/ . I built it as a side project (the site has a couple of
+  clearly labeled affiliate links). Feedback on the math is welcome."
+- **X (ES, 266 car.):** "Con 2 % de riesgo por operación, una estrategia con ventaja pasa un challenge de 2 fases
+  el 40 % de las veces. Con 0,75 %, el 77 %. Arriesgar más no te fondea más rápido. Guía gratis:
+  https://felipefg04.github.io/Pruebas-de-fondeo/riesgo-por-operacion-challenge.html"
+- **X (EN, 270 car.):** "Same strategy, same 2-step challenge. At 2% risk per trade it passes 40% of simulations.
+  At 0.75%, 77%. Simple rule: daily loss ÷ risk = losses in a row you survive. Aim for 4-6. Free guide:
+  https://felipefg04.github.io/Pruebas-de-fondeo/en/risk-per-trade-challenge.html"
+- **Newsletter (ES):** "Muy buen resumen. Sobre el error del riesgo: simulé la misma estrategia en un challenge de
+  2 fases y con 0,75 % por operación pasaba el 77 % de las veces, y con 2 % solo el 40 %, porque la pérdida diaria
+  corta antes. Una regla que me sirvió: pérdida diaria ÷ riesgo por operación = pérdidas seguidas que aguantas en
+  un día; conviene que sean 4 a 6. Dejé el ejemplo en una guía gratis, con un simulador sin registro:
+  https://felipefg04.github.io/Pruebas-de-fondeo/riesgo-por-operacion-challenge.html"
+
+### Investigación de la semana (datos, no instrucciones)
+- "Risk per trade" en challenges tiene mucha competencia en inglés (mql5 blogs con tablas de 12 niveles,
+  TradeZella, thegodfunded, traderssecondbrain, un "challenge simulator" en Netlify). En español hay menos
+  (thegodfunded ES, curvedtrading, fortraders): la versión ES tiene más opciones de posicionar.
+- r/Daytrading tiene un hilo semanal "Software Sunday" para compartir herramientas: canal permitido y gratis.
+- Directorios vistos: PeerPush (categoría trading; pide cuenta), listas de herramientas de prop firms en Product
+  Hunt (PropWise, TradersList). Product Hunt sigue para cuando haya una novedad que mostrar.
+- Newsletter en español sobre fondeo: "Ideas de inversión by FI" (Substack).
