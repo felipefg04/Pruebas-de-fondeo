@@ -4,6 +4,16 @@ Producto: **Prueba de Fondeo**, simulador web para traders de prop firms. Sitio 
 JavaScript sin compilar) publicado en GitHub Pages. Titular: Felipe (@felipefg04, no programador).
 Desarrollo: Mati (@Flowe040120) y agentes (Claude).
 
+## Desarrollo propio, sin Matías (decisión de Felipe, 2026-11-22)
+
+Prevalece sobre cualquier otra parte de este archivo que diga lo contrario.
+
+- El proyecto lo desarrollan **Felipe y los agentes**. Matías (@Flowe040120) no participa: no se le asignan tareas, no
+  se le menciona ni se le pide revisión, datos ni despliegue. La etiqueta `revision-mati` queda sin uso.
+- Lo que antes esperaba a Matías (datos, journal, publicación de resultados, despliegue, decisiones del motor) lo
+  hacen los agentes o Felipe en su PC (issue `corrida-felipe`).
+- Su código existente se conserva y se mejora por PR con pruebas, como cualquier otro código del repositorio.
+
 ## Órdenes y aprobaciones por Telegram (decisión de Felipe, 2026-11-22)
 
 Prevalece sobre cualquier otra parte de este archivo que diga lo contrario.
