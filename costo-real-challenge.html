@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>¿Cuánto cuesta de verdad pasar un challenge de fondeo? · Prueba de Fondeo</title>
+<meta name="description" content="El costo real de fondearse no es el precio del challenge: es el precio dividido por tu probabilidad de pasar. Ejemplos simulados según tu ventaja y tu riesgo por operación, y simulador gratis.">
+<link rel="canonical" href="https://felipefg04.github.io/Pruebas-de-fondeo/costo-real-challenge.html">
+<meta property="og:title" content="¿Cuánto cuesta de verdad pasar un challenge de fondeo?">
+<meta property="og:description" content="Con ventaja clara, ~1,3 intentos. Con poca ventaja, ~3. Sin ventaja, 4 o más. Ejemplos simulados y simulador gratis.">
+<meta property="og:type" content="article">
+<meta name="theme-color" content="#0f6b72">
+<link rel="alternate" hreflang="es" href="https://felipefg04.github.io/Pruebas-de-fondeo/costo-real-challenge.html">
+<link rel="alternate" hreflang="en" href="https://felipefg04.github.io/Pruebas-de-fondeo/en/prop-firm-challenge-cost.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230f6b72'/%3E%3Cpath d='M6 22l6-6 5 4 9-11' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/styles.css">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "es", "mainEntity": [{"@type": "Question", "name": "¿Cuántos challenges necesito para fondearme?", "acceptedAnswer": {"@type": "Answer", "text": "En promedio, 1 dividido por tu probabilidad de pasar. En el ejemplo simulado, una estrategia con ventaja clara necesita unos 1,3 intentos con 0,75–1 % de riesgo; una con poca ventaja, unos 2,8; y sin ventaja, 4 o más."}}, {"@type": "Question", "name": "¿Cuánto cuesta realmente una cuenta fondeada?", "acceptedAnswer": {"@type": "Answer", "text": "El precio del challenge dividido por tu probabilidad de pasar. Un challenge de US$100 con 25 % de probabilidad cuesta en promedio US$400; con 75 %, unos US$133."}}, {"@type": "Question", "name": "¿Cómo bajo el costo de fondearme?", "acceptedAnswer": {"@type": "Answer", "text": "Primero, tener ventaja medible. Después, elegir un riesgo por operación que no choque con la pérdida diaria: en el ejemplo, arriesgar 2 % en vez de 0,75 % casi duplica el costo esperado. Los descuentos bajan el precio, pero no cambian tu probabilidad."}}]}
+</script>
+</head>
+<body>
+<div class="wrap" style="max-width:820px">
+  <nav class="top" aria-label="Principal">
+    <a class="brand" href="./">Prueba de <i>Fondeo</i></a>
+    <span class="lang" role="group" aria-label="Idioma / Language"><a aria-current="page" lang="es">Español</a><a href="en/prop-firm-challenge-cost.html" hreflang="en" lang="en">English</a></span>
+  </nav>
+
+  <header>
+    <span class="eyebrow">Guía · costos del fondeo</span>
+    <h1>¿Cuánto cuesta de verdad pasar un challenge de fondeo?</h1>
+    <p class="lede">El precio del challenge es lo que pagas por un intento. Lo que cuesta fondearte es ese precio multiplicado por los intentos que vas a necesitar, y eso depende de tu probabilidad de pasar.</p>
+  </header>
+
+  <section class="section" aria-labelledby="r1">
+    <h2 id="r1">La respuesta corta</h2>
+    <ol class="steps">
+      <li><b>Intentos esperados = 1 ÷ probabilidad de pasar</b><span>Si pasas el 25 % de las veces, en promedio necesitas 4 intentos.</span></li>
+      <li><b>Costo esperado = precio ÷ probabilidad de pasar</b><span>Un challenge de US$100 con 25 % de probabilidad te cuesta en promedio US$400.</span></li>
+      <li><b>El riesgo por operación cambia la cuenta</b><span>La misma estrategia puede costar el doble solo por arriesgar 2 % en vez de 0,75–1 %.</span></li>
+    </ol>
+  </section>
+
+  <section class="section" aria-labelledby="r2">
+    <h2 id="r2">Un ejemplo simulado</h2>
+    <p>Tres traders con la misma volatilidad y distinta ventaja: 45 % de acierto con ganancia media de 1,6R (ventaja clara, +0,17R por operación), 40 % con 1,6R (poca ventaja, +0,04R) y "solo suerte" (la misma volatilidad sin ventaja). Unas 1,5 operaciones al día. Evaluación de 2 fases (metas 10 % y 5 %, pérdida diaria 5 %, pérdida total 10 % fija), hasta 90 días hábiles por fase, 4.000 simulaciones por celda. Precio de referencia: US$100 por intento.</p>
+    <p class="note">Cada celda: arriba, intentos esperados; abajo, costo esperado en challenges. En negrita, el riesgo más barato de cada columna.</p>
+    <div class="panel" style="overflow-x:auto">
+      <table style="border-collapse:collapse;width:100%;font-size:14px;font-variant-numeric:tabular-nums">
+        <thead><tr style="text-align:left;color:var(--muted);font-size:13px;vertical-align:bottom"><th style="padding:6px 4px">Riesgo</th><th style="padding:6px 4px">Ventaja<br>clara</th><th style="padding:6px 4px">Poca<br>ventaja</th><th style="padding:6px 4px">Solo<br>suerte</th></tr></thead>
+        <tbody><tr style="border-top:1px solid var(--line)"><td style="padding:8px 4px;vertical-align:top;white-space:nowrap">0,5 %</td><td style="padding:8px 4px;vertical-align:top;white-space:nowrap">1,7<br>US$169</td><td style="padding:8px 4px;vertical-align:top;white-space:nowrap">7,1<br>US$712</td><td style="padding:8px 4px;vertical-align:top;white-space:nowrap">22<br>US$2.162</td></tr><tr style="border-top:1px solid var(--line)"><td style="padding:8px 4px;vertical-align:top;white-space:nowrap">0,75 %</td><td style="padding:8px 4px;vertical-align:top;white-space:nowrap"><b>1,3<br>US$130</b></td><td style="padding:8px 4px;vertical-align:top;white-space:nowrap">3,2<br>US$323</td><td style="padding:8px 4px;vertical-align:top;white-space:nowrap">6,5<br>US$649</td></tr><tr style="border-top:1px solid var(--line)"><td style="padding:8px 4px;vertical-align:top;white-space:nowrap">1 %</td><td style="padding:8px 4px;vertical-align:top;white-space:nowrap">1,3<br>US$132</td><td style="padding:8px 4px;vertical-align:top;white-space:nowrap"><b>2,8<br>US$276</b></td><td style="padding:8px 4px;vertical-align:top;white-space:nowrap">4,2<br>US$422</td></tr><tr style="border-top:1px solid var(--line)"><td style="padding:8px 4px;vertical-align:top;white-space:nowrap">1,5 %</td><td style="padding:8px 4px;vertical-align:top;white-space:nowrap">1,6<br>US$165</td><td style="padding:8px 4px;vertical-align:top;white-space:nowrap">3,1<br>US$306</td><td style="padding:8px 4px;vertical-align:top;white-space:nowrap"><b>3,9<br>US$386</b></td></tr><tr style="border-top:1px solid var(--line)"><td style="padding:8px 4px;vertical-align:top;white-space:nowrap">2 %</td><td style="padding:8px 4px;vertical-align:top;white-space:nowrap">2,5<br>US$253</td><td style="padding:8px 4px;vertical-align:top;white-space:nowrap">4,5<br>US$452</td><td style="padding:8px 4px;vertical-align:top;white-space:nowrap">5,3<br>US$532</td></tr></tbody>
+      </table>
+    </div>
+    <p>Con ventaja clara y 0,75–1 % de riesgo, fondearte cuesta en promedio 1,3 challenges. Con 2 % la misma estrategia necesita 2,5: casi el doble de dinero solo por el tamaño de la posición.</p>
+    <p>Con poca ventaja, lo más barato son unos 2,8 intentos, y la probabilidad de fallar 3 seguidos es de 26 %. Sin ventaja, aun en el mejor caso son casi 4 intentos y fallas 3 seguidos el 41 % de las veces. Si llevas varios intentos fallidos, el problema puede ser la estrategia y no la mala suerte: mídelo antes de pagar otro.</p>
+    <p class="note">Son simulaciones, no resultados reales. Suponen que cada intento es independiente y que operas igual en todos. No incluyen descuentos, reembolsos del precio al pasar, comisiones, deslizamiento ni el resultado abierto dentro del día. Pasar el challenge tampoco garantiza cobrar: la cuenta fondeada tiene sus propias reglas.</p>
+  </section>
+
+  <section class="cta" aria-labelledby="r3">
+    <div>
+      <h2 id="r3" style="margin:0;font:700 20px/1.2 var(--f-display)">Calcula tu costo real</h2>
+      <p>El simulador te da tu probabilidad de pasar con tu % de acierto y tu ganancia media (o tus operaciones reales) en 10 niveles de riesgo. Divide el precio del challenge por esa probabilidad. Gratis, sin registro y todo en tu navegador.</p>
+    </div>
+    <a class="btn" href="./">Abrir el simulador</a>
+  </section>
+
+  <section class="section" aria-labelledby="r4">
+    <h2 id="r4">Preguntas frecuentes</h2>
+    <details><summary>¿Cuántos challenges necesito para fondearme?</summary><p>En promedio, 1 ÷ tu probabilidad de pasar. En el ejemplo: ~1,3 con ventaja clara, ~2,8 con poca ventaja y 4 o más sin ventaja.</p></details>
+    <details><summary>¿Cuánto cuesta realmente una cuenta fondeada?</summary><p>El precio del challenge ÷ tu probabilidad de pasar. US$100 con 25 % = US$400 en promedio; con 75 %, unos US$133.</p></details>
+    <details><summary>¿Cómo bajo el costo de fondearme?</summary><p>Tener ventaja medible y un riesgo por operación que no choque con la pérdida diaria. En el ejemplo, 2 % en vez de 0,75 % casi duplica el costo. Un descuento baja el precio, no tu probabilidad.</p></details>
+  </section>
+
+  <footer>
+    <p class="note">Herramienta independiente, sin afiliación con ninguna prop firm. No es asesoría financiera; operar con apalancamiento implica riesgo de pérdida. <a href="./">Simulador</a> · <a href="probabilidad-pasar-challenge.html">Guía: probabilidad de pasar</a> · <a href="drawdown-fijo-vs-trailing.html">Guía: drawdown fijo vs. trailing</a> · <a href="riesgo-por-operacion-challenge.html">Guía: cuánto arriesgar por operación</a> · <a href="privacidad.html">Privacidad</a></p>
+  </footer>
+</div>
+<script data-goatcounter="https://felipefg.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

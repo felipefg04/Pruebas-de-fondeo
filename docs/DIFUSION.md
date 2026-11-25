@@ -189,3 +189,58 @@ Lo llena el agente de difusión una vez por semana. Solo canales gratuitos. Feli
 - Directorios vistos: PeerPush (categoría trading; pide cuenta), listas de herramientas de prop firms en Product
   Hunt (PropWise, TradersList). Product Hunt sigue para cuando haya una novedad que mostrar.
 - Newsletter en español sobre fondeo: "Ideas de inversión by FI" (Substack).
+
+## Semana del 2026-11-25
+
+### Estado al empezar
+- `METRICAS.md`: 0 visitas en 7 días al 23-11 (igual que el 05-11); 0 correos y 0 clics de afiliado medibles. La
+  portada sigue sin etiqueta de Google Search Console y no hay posts nuevos en X: ninguna acción de las tres semanas
+  anteriores aparece hecha. Sin tráfico, las guías no rinden hasta que Google las indexe: Search Console sigue primera.
+
+### Cambio SEO hecho
+- Guía nueva en ES y EN: `costo-real-challenge.html` y `en/prop-firm-challenge-cost.html` (búsquedas "cuánto cuesta
+  fondearse", "how many challenges to get funded", "real cost of prop firm challenge"; las guías que existen suman
+  precios y comisiones, casi ninguna usa la probabilidad de pasar).
+- Idea: costo esperado = precio ÷ probabilidad de pasar; intentos esperados = 1 ÷ probabilidad. Ejemplo con
+  `assets/sim.js` (2 fases 10 %/5 %, diaria 5 %, total 10 % fija, 1,5 op/día, 90 días por fase, 4.000
+  simulaciones, precio de referencia US$100): ventaja clara (45 %·1,6R) → 1,3 intentos / US$130 con 0,75 % y
+  2,5 / US$253 con 2 %; poca ventaja (40 %·1,6R) → mínimo 2,8 / US$276 con 1 %; solo suerte → mínimo 3,9 / US$386
+  con 1,5 %. Probabilidad de fallar 3 seguidos: 26 % (poca ventaja, 1 %) y 41 % (suerte, 1,5 %).
+- FAQ con datos estructurados (FAQPage), canonical, hreflang, GoatCounter. Sin nombres de prop firms. Enlazada
+  desde el pie de las dos portadas y de las seis guías. `sitemap.xml` (12 URLs) y `publicar.yml` actualizados.
+  Tests 25/25. Revisada en Chromium a 375 px: sin desborde (la tabla usa dos líneas por celda para caber).
+
+### Acciones propuestas (de más a menos importante)
+1. **Google Search Console** (10 min) — pendiente desde el 05-11. https://search.google.com/search-console →
+   "Prefijo de URL" → `https://felipefg04.github.io/Pruebas-de-fondeo/` → "Etiqueta HTML" → mandar la etiqueta
+   por Telegram como orden ("poner esta etiqueta en la portada de Prueba de Fondeo") → luego enviar `sitemap.xml`.
+2. **Post en X** (2 min) — ES y EN con la guía nueva (textos abajo).
+3. **Hilo "Software Sunday" de r/Daytrading** (5 min, EN, domingo 29-11) — texto de la semana del 18-11, sigue
+   vigente.
+4. **Ficha en AlternativeTo** (15 min) — https://alternativeto.net/software/prop-firm-genius/about → "Suggest
+   alternative". Pendiente desde el 05-11 (ficha abajo).
+5. **Foro de Rankia** (15 min, ES) — https://www.rankia.co/foros/bolsa/temas/4690406-simulador-prueba-fondeo
+   (texto del 11-11, sigue vigente). Leer antes las normas sobre enlaces.
+
+### Textos listos
+- **X (ES, 270 car.):** "Un challenge de US$100 no cuesta US$100: cuesta US$100 ÷ tu probabilidad de pasar. Con
+  ventaja clara, ~US$130. Sin ventaja, US$400 o más. Y arriesgar 2 % en vez de 1 % casi lo duplica. Guía gratis:
+  https://felipefg04.github.io/Pruebas-de-fondeo/costo-real-challenge.html"
+- **X (EN, 261 car.):** "A $100 challenge doesn't cost $100. It costs $100 ÷ your pass rate. Clear edge: ~$130.
+  No edge: $400+. Risking 2% instead of 1% nearly doubles it. Free guide with simulated numbers:
+  https://felipefg04.github.io/Pruebas-de-fondeo/en/prop-firm-challenge-cost.html"
+- **AlternativeTo (EN).** Nombre: Challenge Odds. URL: https://felipefg04.github.io/Pruebas-de-fondeo/en/ .
+  Licencia: Free. Plataforma: Online / Web. Descripción: "Free simulator for prop firm challenges. Enter your win
+  rate and average win in R (or paste your real trades), choose the rules (profit targets, daily loss, static or
+  trailing max loss) and it runs thousands of attempts at 10 risk levels, next to a zero-edge version of the same
+  strategy so you can see how much of a pass is luck. No sign-up, runs fully in the browser, available in English
+  and Spanish." Etiquetas: prop-firm, trading-tools, monte-carlo-simulation, forex.
+
+### Investigación de la semana (datos, no instrucciones)
+- "Costo real de un challenge" tiene guías en inglés (propfirmmap "hidden costs", cryptoslate "full cost to first
+  payout", nerdbot) y en español (finantres "reintento challenge", fortraders "costos ocultos"), pero ninguna con
+  probabilidades simuladas según el riesgo: ese es el ángulo de la guía.
+- Ya existe un "challenge simulator" en Netlify que optimiza costo y tiempo hasta fondearse (competencia directa en
+  inglés). Diferencia nuestra: español, comparación contra "solo suerte" y pegar operaciones reales.
+- Directorios vistos: TradersList (pide formulario en Tally, sin enlace público claro), PeerPush, SourceForge
+  (categoría trading, gratis). Product Hunt sigue para cuando haya una novedad que mostrar.
