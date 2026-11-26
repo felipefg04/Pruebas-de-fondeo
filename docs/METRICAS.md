@@ -11,8 +11,24 @@ Lo llena el agente de crecimiento en cada ejecución. Fuentes: GoatCounter (visi
 | 2026-11-02 | 0 (01-11) | 1 | ES 0 / EN 1 | t.co 1 | 0 | sin dato (pide iniciar sesión) | sin posts ni respuestas nuevas; últimos del 22-10: 9, 9, 6 vistas; 0 seguidores | 1 visita en 7 días (Nigeria, iPhone, desde X). Baja vs. 30-10 (2). No se publicaron las respuestas sugeridas del 29 y 30-10. |
 | 2026-11-05 | 0 (04-11) | 0 | ES 0 / EN 0 | ninguno | 0 | sin dato (pide iniciar sesión) | sin posts ni respuestas nuevas; últimos del 22-10: 9, 9, 7, 6, 4 vistas; 0 seguidores | 0 visitas en 7 días (baja vs. 02-11: 1). El contador de GoatCounter sí está instalado en la página (revisado). No se publicaron las respuestas sugeridas del 29-10, 30-10 ni 02-11. |
 | 2026-11-23 | 0 (22-11) | 0 | ES 0 / EN 0 | ninguno | 0 | sin dato (Tally pide iniciar sesión) | sin posts ni respuestas nuevas; últimos del 22-10: 10, 9, 8, 4 vistas; 0 seguidores | 0 visitas en 7 días (igual que 05-11). No hubo ejecuciones entre el 06 y el 22-11. No se publicaron las respuestas sugeridas anteriores. Competidor visto: Vectaurscan promociona un simulador Monte Carlo gratis parecido en X (ES). |
+| 2026-11-26 | 0 (25-11) | 0 | ES 0 / EN 0 | ninguno | 0 | sin dato (Tally pide iniciar sesión) | sin posts ni respuestas nuevas; últimos del 22-10: 10, 9, 9, 4 vistas; 0 seguidores | 0 visitas en 7 días (igual que 23-11). No se publicaron las respuestas sugeridas del 23-11. Las guías nuevas del 25-11 (costo real) aún sin visitas. |
 
 ## Respuestas sugeridas
+
+### 2026-11-26
+
+1. https://x.com/tradercams/status/2125636380847923406 (EN, ~2,2 mil vistas, con link)
+   > Solid blueprint. Worth knowing what it implies: at 50% WR, 6-8 losses in a row will show up over a year, so 1% risk means a 6-8% dip. Check it fits the daily and max drawdown first. Free sim to test it: https://felipefg04.github.io/Pruebas-de-fondeo/en/
+2. https://x.com/bitfunded/status/2125783103960703348 (EN, ~1,2 mil vistas, sin link)
+   > True. The rule that ends most attempts is the daily loss limit: if your risk per trade lets 3-4 normal losses in a row breach it, the edge never gets time to show. Cutting risk often raises pass odds more than finding a better setup.
+3. https://x.com/robinf_x/status/2125905300062388396 (EN, ~540 vistas, sin link)
+   > #4 is underrated. Static vs trailing drawdown can change pass odds a lot for the same strategy, since trades that dip before working stop ending the account. I'd add: size risk so your worst normal losing streak stays under half the max DD.
+4. https://x.com/Vulcano_Trader/status/2125580798770262200 (ES, ~570 vistas, con link)
+   > Y en fondeo eso se planifica: con tu % de acierto, una racha de 6-8 pérdidas va a llegar tarde o temprano. Si tu riesgo por operación la aguanta sin tocar el drawdown, un mal día es solo un mal día. Simulador gratis: https://felipefg04.github.io/Pruebas-de-fondeo/
+5. https://x.com/iceuve/status/2125693759937519777 (ES, ~2,9 mil vistas, sin link)
+   > Muy buen punto, el tiempo hasta el payout casi nunca entra en las cuentas. ¿Lo mides como ROI mensual sobre el capital total? Con payouts rápidos la misma ventaja rinde más, pero una mala racha también se come el capital más rápido.
+
+Nota 26-11: iceuve ya se usó el 22-10 (hace más de un mes); se repite porque en español casi no hubo otros posts de 24 h con buena visibilidad.
 
 ### 2026-11-23
 
